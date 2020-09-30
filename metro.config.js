@@ -6,6 +6,7 @@
  */
 
 module.exports = {
+  assets: ['./Src/Styles/'],
   transformer: {
     getTransformOptions: async () => ({
       transform: {

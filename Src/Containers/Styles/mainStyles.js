@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         flex: 1,
         borderRadius:hp('4%')
       },
-//CothsType Screen 
+
     typeHeaderView:{
         flex:1.3,
         borderRadius:hp('4%'),
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
         height:hp('22%'),
         borderRadius:hp('2%'),
     },
-//clothsList
+
 MainContainer: {
     justifyContent: 'center',
     flex: 4,
@@ -93,20 +93,18 @@ MainContainer: {
   imageThumbnail: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: hp('10%'),
-    width:wp('30%'),
-    margin:5,
-    borderRadius: 10,
+    height: hp('15%'),
+    width: '100%',
   },
 
-  //Detail screen
+
 
   DetailMainContainer: {
     justifyContent: 'center',
     flex: 4,
     backgroundColor:'white',
   },
- //meaurment
+
  headerItem:{
     flex:1
   },
