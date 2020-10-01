@@ -12,6 +12,7 @@ const Nearby = (props) => {
         zIndex1: -1,
         zIndex2: -1,
         show: false,
+        showButtons : true
 
     });
 
@@ -29,8 +30,7 @@ const Nearby = (props) => {
             this.view1.fadeOutUp(400)
             
           }else{
-            setData({zIndex:500})
-            setData({zIndex1:10})
+            setData({zIndex:500,zIndex1:10,showButtons:false})
             this.view.fadeInUp(400)
             
             this.view1.fadeInDown(400)
@@ -45,9 +45,33 @@ const Nearby = (props) => {
         if(data.show){
             this.view.fadeOutDown(400)
             this.view1.fadeOutUp(400)
-            setData({show : false,zIndex1:0,zIndex:-1 })
+            setData({show : false,zIndex1:0,zIndex:-1,showButtons:true })
           }
 
+    }
+
+    buttons = () =>{
+        if(data.showButtons == true){
+        return(
+            <View style={{ width: wp('100%'), alignItems: 'flex-end', justifyContent: 'flex-end', marginRight: hp('2%'), marginBottom: hp('3%') }}>
+            <Button  style={{ height: hp('6%'), width: wp('14%'), backgroundColor: '#FFFFFF', alignSelf: 'flex-end', justifyContent: 'center', alignItems: 'center', borderRadius: 10, margin: 5, shadowOpacity: 0.1, shadowOffset: { width: 2, height: 2 }, elevation: 1 }}>
+                <Image source={require('../Images/icons-setting.png')} resizeMode='contain' />
+            </Button>
+
+            <Button  style={{ height: hp('6%'), width: wp('14%'), backgroundColor: '#FFFFFF', alignSelf: 'flex-end', justifyContent: 'center', alignItems: 'center', borderRadius: 10, margin: 5, shadowOpacity: 0.1, shadowOffset: { width: 2, height: 2 }, elevation: 1 }}>
+                <Image source={require('../Images/icons-gps.png')} resizeMode='contain' />
+            </Button>
+        </View>
+
+        )
+    }else{
+        return(
+            <View>
+
+        </View>
+
+        )
+    }
     }
 
 
@@ -68,25 +92,16 @@ const Nearby = (props) => {
         </Animatable.View>
 
                 <Content>
-
                 </Content>
-                <View style={{ width: wp('100%'), alignItems: 'flex-end', justifyContent: 'flex-end', marginRight: hp('2%'), marginBottom: hp('3%') }}>
-                    <Button  style={{ height: hp('6%'), width: wp('14%'), backgroundColor: '#FFFFFF', alignSelf: 'flex-end', justifyContent: 'center', alignItems: 'center', borderRadius: 10, margin: 5, shadowOpacity: 0.1, shadowOffset: { width: 2, height: 2 }, elevation: 1 }}>
-                        <Image source={require('../Images/icons-setting.png')} resizeMode='contain' />
-                    </Button>
-
-                    <Button  style={{ height: hp('6%'), width: wp('14%'), backgroundColor: '#FFFFFF', alignSelf: 'flex-end', justifyContent: 'center', alignItems: 'center', borderRadius: 10, margin: 5, shadowOpacity: 0.1, shadowOffset: { width: 2, height: 2 }, elevation: 1 }}>
-                        <Image source={require('../Images/icons-gps.png')} resizeMode='contain' />
-                    </Button>
-                </View>
-
-                <View style={{ width: wp('100%'), height: hp('12%'), backgroundColor: 'white', flexDirection: 'row' }}>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <Button style={{backgroundColor:'green'}}>
-                        <Image source={require('../Images/icons-arr.png')} onPress={() => onShow()} resizeMode='contain'/>
+                
+                {buttons()}
+                 <View style={{ width: wp('100%'), height: hp('12%'), backgroundColor: 'white', flexDirection: 'row' }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',marginLeft:hp('2%') }}>
+                        <Button style={{width:11.99,height:6.66}} transparent onPress={() => onShow()}>
+                        <Image  source={require('../Images/icons-arr.png')}  resizeMode='contain'/>
                         </Button>
                     </View>
-                    <View style={{ flex: 5, justifyContent: 'center' }}>
+                    <View style={{ flex: 7, justifyContent: 'center' }}>
                         <Text style={{ fontWeight: 'bold' }}>Nearby</Text>
                         <Text>Shoping, food, places</Text>
                     </View>
@@ -116,8 +131,8 @@ const Nearby = (props) => {
                                 <Icon name='menu' style={{margin: hp('2%') }}/>
                                 
                             </View>
-                            <View style={{ alignItems: 'center', justifyContent: 'center', width: wp('100%') }}>
-                                <Button style={{ borderRadius: 10, backgroundColor: 'white',borderColor:'#F8CF52',borderWidth:2 ,margin: hp('2%'), width: wp('70%'),alignSelf:'center', alignItems: 'center', justifyContent: 'center' }} placeholder="Password"
+                            <View style={{ alignItems: 'center', justifyContent: 'center', width:'100%' }}>
+                                <Button style={{ borderRadius: 10, backgroundColor: 'black',borderColor:'#F8CF52',borderWidth:2 ,margin: hp('2%'), width: wp('70%'), alignItems: 'center', justifyContent: 'center' }}
                                     onPress={()=>navigation.navigate('Store')}>
                                     <Text style={{color:'#F8CF52'}}>
                                     Shop Now
